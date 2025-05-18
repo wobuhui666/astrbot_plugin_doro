@@ -55,14 +55,17 @@ class MyPlugin(Star):
         except httpx.HTTPStatusError as e:
             error_detail = traceback.format_exc()
             self.logger.error(f"HTTP状态错误: {e}\n{error_detail}")
+            print("发生错误:", e)
             yield event.plain_result(f"API 请求失败，错误码：{e.response.status_code}")
         except httpx.RequestError as e:
             error_detail = traceback.format_exc()
             self.logger.error(f"请求错误: {e}\n{error_detail}")
+            print("发生错误:", e)
             yield event.plain_result("请求失败，请检查网络或 API 是否可用")
         except Exception as e:
             error_detail = traceback.format_exc()
             self.logger.error(f"未知错误: {e}\n{error_detail}")
+            print("发生错误:", e)
             yield event.plain_result("发生未知错误")
         finally:
             self.last_called_time = time.time()
