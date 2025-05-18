@@ -66,7 +66,7 @@ class MyPlugin(Star):
             error_detail = traceback.format_exc()
             self.logger.error(f"未知错误: {e}\n{error_detail}")
             print("发生错误:", e)
-            yield event.plain_result("发生未知错误")
+            yield event.plain_result("发生未知错误:", e)
         finally:
             self.last_called_time = time.time()
 
