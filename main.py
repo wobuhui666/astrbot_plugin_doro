@@ -33,6 +33,7 @@ class MyPlugin(Star):
 
     @filter.command("doro")
     async def doro(self, event: AstrMessageEvent):
+        '''发送一个随机doro表情包'''
         on_cooldown, remaining_time = self.is_on_cooldown()
         if on_cooldown:
             yield event.plain_result(
