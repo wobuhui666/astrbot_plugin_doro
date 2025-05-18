@@ -47,7 +47,7 @@ class MyPlugin(Star):
                 if data.get("success", False):  # 检查 API 返回的 success 字段
                     sticker_url = data["sticker"]["url"]
                     if sticker_url:
-                        yield event.image_result(image=sticker_url)
+                        yield event.image_result(sticker_url)
                     else:
                         yield event.plain_result("未获取到表情包，请稍后再试")
                 else:
