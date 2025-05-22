@@ -5,17 +5,20 @@ import traceback
 import httpx
 from astrbot.api.event import filter, AstrMessageEvent, MessageEventResult
 from astrbot.api.star import Context, Star, register
-from astrbot.api import logger
+from astrbot.api import logger, AstrBotConfig
 
 
 @register("astrbot_plugin_doro", "shingetsu", "随机doro表情包", "0.0.1")
 class MyPlugin(Star):
-    last_called_time = 0  # 上次调用时间
-    cooldown_period = 5  # 冷却时间（秒）
+    # last_called_time = 0  # 上次调用时间
+    # cooldown_period  # 冷却时间（秒）
 
-    def __init__(self, context: Context):
+    def __init__(self, context: Context, config: AstrBotConfig):
         super().__init__(context)
-
+        self.logger = None
+        self.config = config
+        self.cooldown_period = config.get("cooldown_period")
+        self.last_called_time = 0
     async def initialize(self):
         """可选择实现异步的插件初始化方法，当实例化该插件类之后会自动调用该方法。"""
         self.logger = logging.getLogger(__name__)
@@ -29,11 +32,11 @@ class MyPlugin(Star):
         current_time = time.time()
         elapsed_time = current_time - self.last_called_time
         remaining_time = max(0, self.cooldown_period - elapsed_time)
-        return (elapsed_time < self.cooldown_period, remaining_time)
+        return elapsed_time < self.cooldown_period, remaining_time
 
     @filter.command("doro")
     async def doro(self, event: AstrMessageEvent):
-        '''发送一个随机doro表情包'''
+        """发送一个随机doro表情包"""
         on_cooldown, remaining_time = self.is_on_cooldown()
         if on_cooldown:
             yield event.plain_result(

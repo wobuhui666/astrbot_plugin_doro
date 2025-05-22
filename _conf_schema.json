@@ -1,0 +1,7 @@
+{
+  "cooldown_period": {
+    "description": "发送表情包冷却时间",
+    "type": "int",
+    "default": 5
+  }
+}
