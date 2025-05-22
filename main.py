@@ -8,7 +8,7 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger, AstrBotConfig
 
 
-@register("astrbot_plugin_doro", "shingetsu", "随机doro表情包", "0.0.1")
+@register("astrbot_plugin_doro", "shingetsu", "随机doro表情包", "0.0.2")
 class MyPlugin(Star):
     # last_called_time = 0  # 上次调用时间
     # cooldown_period  # 冷却时间（秒）
