@@ -7,13 +7,13 @@
 - **名称**: doro
 - **别名**: shingetsu
 - **描述**: 随机 doro 表情包
-- **版本**: 0.0.1
+- **版本**: 0.0.2
 
 ## ✨ 功能说明
 
 本插件注册了一个指令 `/doro`，用于从 [https://www.doro.asia/api/random-sticker](https://www.doro.asia/api/random-sticker) 获取一张随机的 Doro 表情包图片，并发送至聊天中。
 
-> 注意：该指令有 5 秒冷却时间，防止频繁请求 API。
+> 注意：该指令有 5 秒冷却时间，防止频繁请求 API（可通过配置修改）。
 
 ## 🛠 安装方法
 
