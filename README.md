@@ -7,13 +7,17 @@
 - **名称**: doro
 - **别名**: shingetsu
 - **描述**: 随机 doro 表情包
-- **版本**: 0.0.3
+- **版本**: 0.0.4
 
 ## ✨ 功能说明
 
 本插件注册了一个指令 `/doro`，用于从 [https://www.doro.asia/api/random-sticker](https://www.doro.asia/api/random-sticker) 获取一张随机的 Doro 表情包图片，并发送至聊天中。
 
 > 注意：该指令有 5 秒冷却时间，防止频繁请求 API。
+
+本插件还注册了另一个指令 `/cheshire`，用于从 [https://www.cheshire.asia/api/random-sticker](https://www.cheshire.asia/api/random-sticker) 获取一张随机的 Cheshire 表情包图片，并发送至聊天中。
+
+> 注意：该指令同样有冷却时间（默认与 /doro 相同，具体值取决于配置），防止频繁请求 API。
 
 ## 🛠 安装方法
 
@@ -26,8 +30,13 @@
 | 指令 | 描述 |
 |------|------|
 | `/doro` | 获取一张随机 Doro 表情包 |
+| `/cheshire` | 获取一张随机 Cheshire 表情包 |
 
 ## 📜 更新日志
+
+### v0.0.4
+- 新增 `/cheshire` 指令，用于获取随机 Cheshire 表情包。
+- 优化了 API 调用失败时的错误提示信息（当 API 返回 success:false 时不再显示具体 URL）。
 
 ### v0.0.3
 增加了 httpx 请求的重试机制，失败时会重试最多三次。
