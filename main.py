@@ -9,7 +9,7 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger, AstrBotConfig
 
 
-@register("astrbot_plugin_doro", "shingetsu", "随机doro表情包", "0.0.5")
+@register("astrbot_plugin_doro", "shingetsu", "随机doro表情包", "0.0.6")
 class MyPlugin(Star):
     # last_called_time = 0  # 上次调用时间
     # cooldown_period  # 冷却时间（秒）
@@ -64,7 +64,7 @@ class MyPlugin(Star):
                 # httpx 默认会跟随重定向 (follow_redirects=True)
                 async with httpx.AsyncClient() as client:
                     response = await client.get("https://logo.114514heihei.eu.org")
-                    response.raise_for_status()  # 检查最终请求的状态码是否为 2xx
+                    #response.raise_for_status()  # 检查最终请求的状态码是否为 2xx
 
                     # 对于重定向的API, 最终的 response.url 就是我们需要的图片链接
                     sticker_url = str(response.url)
