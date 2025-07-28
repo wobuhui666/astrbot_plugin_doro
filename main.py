@@ -63,7 +63,7 @@ class MyPlugin(Star):
             try:
                 # httpx 默认会跟随重定向 (follow_redirects=True)
                 async with httpx.AsyncClient() as client:
-                    response = await client.get("https://logo.114514heihei.eu.org")
+                    response = await client.get("http://192.168.1.3:3333/random-gif")
                     #response.raise_for_status()  # 检查最终请求的状态码是否为 2xx
 
                     # 对于重定向的API, 最终的 response.url 就是我们需要的图片链接
