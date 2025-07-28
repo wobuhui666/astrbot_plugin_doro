@@ -62,7 +62,7 @@ class MyPlugin(Star):
         for attempt in range(max_retries):
             try:
                 async with httpx.AsyncClient() as client:
-                    response = await client.get("https://www.doro.asia/api/random-sticker")
+                    response = await client.get("https://logo.114514heihei.eu.org")
                     response.raise_for_status()  # 对 4xx/5xx 响应抛出异常
                     data = response.json()
                     if data.get("success", False):  # 检查 API 返回的 success 字段
